@@ -12,7 +12,16 @@ const CreateProperty = () => {
     register,
     handleSubmit,
   } = useForm();
-  const handleImageChange = () => {};
+        new Promise<string>((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.onload = () => resolve(fileReader.result as string);
+            fileReader.readAsDataURL(readFile);
+        });
+
+    reader(file).then((result: string) =>
+        setPropertyImage({ name: file?.name, url: result }),
+    );
+  };
   const onFinishHandler = () => {};
 
   return (
