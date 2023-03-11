@@ -12,6 +12,8 @@ const CreateProperty = () => {
     register,
     handleSubmit,
   } = useForm();
+  const handleImageChange = (file: File) => {
+    const reader = (readFile: File) =>
         new Promise<string>((resolve, reject) => {
             const fileReader = new FileReader();
             fileReader.onload = () => resolve(fileReader.result as string);
@@ -22,7 +24,10 @@ const CreateProperty = () => {
         setPropertyImage({ name: file?.name, url: result }),
     );
   };
-  const onFinishHandler = () => {};
+  const onFinishHandler = async (data:FieldValues) => {
+    if(!propertyImage.name)return alert('Please select an image');
+    await onFinish ({...data, photo:propertyImage.url,email:user.email})
+  };
 
   return (
     <Form
