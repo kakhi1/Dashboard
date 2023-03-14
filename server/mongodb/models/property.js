@@ -6,7 +6,7 @@ const PropertySchema=new mongoose.Schema({
     location:{type:String,required:true },
     price:{type:String,required:true },
     photo:{type:String,required:true },
-    creator:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
+    creator:{type:mongoose.Schema.Types.ObjectID,ref:'user'},
 })
 const propertyModel=mongoose.model('Property', PropertySchema);
 export default propertyModel;
