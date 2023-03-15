@@ -57,7 +57,7 @@ const Form = ({
                 color="info"
                 style={{width:'100%', background:'transparent', fontSize:'16px',
                   borderColor:'rgba(0,0,0,0.23)', borderRadius:6, padding:10, color:'#919191'}}
-                  {...register('title',{required:true})}
+                  {...register('description',{required:true})}
                 />
           </FormControl>
           <Stack direction='row' gap={4}>
@@ -77,7 +77,7 @@ const Form = ({
                 required
                 inputProps={{'area-label':'without label'}}
                 defaultValue='aparment'
-                {...register('title',{required:true})}
+                {...register('propertyType',{required:true})}
                  >
                   <MenuItem value='apartment'>Apartment
                   </MenuItem>
