@@ -123,8 +123,7 @@ const deleteProperty=async(req,res)=>{
         if (!propertyToDelete) throw new Error("Property not found");
         const session = await mongoose.startSession();
         session.startTransaction();
-
-        propertyToDelete.remove({ session });
+        await propertyToDelete.deleteOne({ session });
         propertyToDelete.creator.allProperties.pull(propertyToDelete);
         await propertyToDelete.creator.save({ session });
         await session.commitTransaction();
